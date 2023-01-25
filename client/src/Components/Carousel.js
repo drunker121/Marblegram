@@ -14,7 +14,7 @@ const Carousel = () => {
       <div>
         <section className="graimg">
           <div className="graphite">
-            GRAPHITE
+            GRANITE
           </div>
         </section>
         <section>

@@ -1,7 +1,9 @@
 import React from 'react';
 import './Products.css';
-
-
+import c1 from '../../Images/c1.jpg';
+import { Link } from 'react-router-dom';
+import c2 from '../../Images/c2.jpg';
+import c3 from '../../Images/c3.jpg'
 const Products = () => {
   return (
     <>
@@ -19,25 +21,26 @@ const Products = () => {
         <section className="section-1">
             <div className="row">
                 <figure className="figure">
-                <img src="https://images.pexels.com/photos/2825578/pexels-photo-2825578.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+                <img src={c1} alt="marble"
+                />
                 <figcaption>
-                    <h3>Buy Now</h3>
+                    <h3>MARBLE</h3>
                 </figcaption>
-                <a href="#"></a>
+                <Link to="/"></Link>
                 </figure>
                 <figure className="figure">
-                <img src="https://images.pexels.com/photos/1918246/pexels-photo-1918246.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+                <img src={c2} alt='granite'/>
                 <figcaption>
-                    <h3>Read More</h3>
+                    <h3>GRANITE</h3>
                 </figcaption>
-                <a href="#"></a>
+                <Link to="/"></Link>
                 </figure>
                 <figure className="figure">
-                <img src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+                <img src={c3} alt='art & craft'/>
                 <figcaption>
-                    <h3>Join Us</h3>
+                    <h3>ART & CRAFT</h3>
                 </figcaption>
-                <a href="#"></a>
+                <Link to="/"></Link>
                 </figure>
             </div>
         </section>
