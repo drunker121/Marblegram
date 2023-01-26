@@ -24,7 +24,7 @@ const Services = () => {
         
             <div className="card" >
               <div className="card-body">
-                <div className="icon mx-3"><SiSimpleanalytics size={35} style={{color: "#244a92"}}/></div>
+                <div className="mx-3"><SiSimpleanalytics size={35} style={{color: "#244a92"}}/></div>
                 <h5 className="card-title mt-4 mx-3" style={{color: "#244a92"}}>Financial Analyst</h5>
                 <p className="card-text mt-5 mx-3">
                 We created this square foot calculator for the flooring to take the maths off your plate. Thanks to this tool, you can quickly estimate the flooring cost and calculate how much hardwood.

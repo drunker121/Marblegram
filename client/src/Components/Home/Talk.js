@@ -1,5 +1,6 @@
 import React from 'react';
 import './Talk.css';
+import Testimonials from './Testimonials';
 // import { Link } from 'react-router-dom';
 
 const Talk = () => {
@@ -48,6 +49,7 @@ const Talk = () => {
 
     </div>
 
+    <Testimonials/>
 
     <div className='customer mt-5'>
       <div className=''><h3 className='custext text-white pt-5'>Customer relation with</h3></div>
