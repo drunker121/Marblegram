@@ -30,7 +30,7 @@ const Services = () => {
                 We created this square foot calculator for the flooring to take the maths off your plate. Thanks to this tool, you can quickly estimate the flooring cost and calculate how much hardwood.
                 </p>
                 <div className="mt-5">
-                <Link to="#" className="card-link mt-5">
+                <Link to="/financialanalyst" className="card-link mt-5">
                   READ MORE
                 </Link>
                 </div>
@@ -45,7 +45,7 @@ const Services = () => {
                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words
                 </p>
                 <div className="mt-5">
-                <Link to="/" className="card-link">
+                <Link to="/installation" className="card-link">
                 READ MORE
                 </Link>
                 </div>

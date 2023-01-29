@@ -109,22 +109,22 @@ const Footer = () => {
                             </h5>
                             <ul>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/financialanalyst">
                                         Financial Analyst
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/installation">
                                         Installation and Finishing
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/selectionconsultancy">
                                         Marble Selection Consultancy
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/interior">
                                         Interior Design
                                     </Link>
                                 </li>

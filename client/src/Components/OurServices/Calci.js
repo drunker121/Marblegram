@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Calci.css';
-import background from '../Images/3.jpg';
+import background from '../../Images/3.jpg';
 
 // 6,7,3
 // maybe 9,12
