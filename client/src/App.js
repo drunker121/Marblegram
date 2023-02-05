@@ -10,6 +10,9 @@ import Calci from './Components/OurServices/Calci';
 import Installation from './Components/OurServices/Installation';
 import Selection from './Components/OurServices/Selection';
 import Interior from './Components/OurServices/Interior';
+import Products from './Components/Products';
+import SingleProduct from './Components/SingleProduct';
+import ErrorPage from './Components/ErrorPage';
 function App() {
   return (
     <>
@@ -23,6 +26,9 @@ function App() {
         <Route path="/installation" element={<Installation/>} />
         <Route path="/selectionconsultancy" element={<Selection/>} />
         <Route path="/interior" element={<Interior/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/singleproduct/:id" element={<SingleProduct/>} />
+        <Route path="*" element={<ErrorPage/>} />
       </Routes>
       <Footer/>
     </>

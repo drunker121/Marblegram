@@ -120,6 +120,8 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912839.3705326719!2d74.2633954143983!3d26.655564199999983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396bf33f65f35f5d%3A0xcfd329aafda34fb8!2smarblegram!5e0!3m2!1sen!2sin!4v1675623452693!5m2!1sen!2sin" width="100%" height="400" style={{border:0 }}allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </>
   );
 };

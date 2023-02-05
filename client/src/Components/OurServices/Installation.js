@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../About.css';
 
 const Installation = () => {
   return (
     <>
-        <div>
-            <h2>Installation and Finishing</h2>
-        </div>
         <div>videos</div>
-        <div className='m-5 p-5'>
+        <div className='abtinfo m-5 p-5'>
+            <h2>Installation and Finishing</h2><br></br>
             <small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of LYou have bought the most gorgeous tiles and are all set to get the floor of your dreams. Pause and count to ten. Getting the floor tiles installed correctly is as important as choosing the right tile, because a shoddy job can mar the beauty of your very expensive tiles. Premium-quality tiles, along with correct application techniques and good workmanship, create floors that last. A good tile contractor is essential to ensure that the installation is done smoothly and skillfully. Here are some tips about things to look out for.</small><br></br><br></br>
             <small><span className='text-bold' style={{ fontWeight: "bold" }}>1. Check the tiles</span><br></br><br></br>
 Before the tile installation starts, check the tiles for any kind of damage, discolouration or shade difference. Change the defective tiles immediately. Make sure that the contractor handles the tiles carefully to avoid any kind of damage.</small><br></br><br></br>
