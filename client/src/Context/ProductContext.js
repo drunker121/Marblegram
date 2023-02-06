@@ -1,23 +1,38 @@
-import  { createContext, useEffect } from 'react';
+import  { createContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
+import reducer from '../Reducer/productReducer'
 
 const AppContext = createContext();
+const API = "https://drunker121.github.io/MarbleGramAPI/Products.json";
+
+const initialState ={
+    isLoading: false,
+    isError: false,
+    products : [],
+};
 
 const AppProvider = ({children}) => {
 
-    const API = "https://drunker121.github.io/MarbleGramAPI/Products.json";
+    const [state , dispatch] = useReducer(reducer , initialState);
 
     const getProducts = async (url) =>{
+        dispatch({type: "API_LOADING"});
+
+        try{
         const res = await axios.get(url);
         const products = await res.data;
-        console.log(products);
+        dispatch({ type: "MY_API_DATA" , payload: products});
+        }
+        catch(error) {
+        dispatch({type: "API_ERROR"});
+        }
     };
 
     useEffect(() =>{
         getProducts(API);
     }, [])
 
-    return <AppContext.Provider value="">{children}</AppContext.Provider>
+    return <AppContext.Provider value={{ ...state}}>{children}</AppContext.Provider>
 };
 
 export {AppProvider, AppContext};
