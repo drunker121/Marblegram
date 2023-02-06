@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, BrowserRouter} from "react-router-dom";
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Footer from './Components/Home/Footer'
@@ -16,6 +16,7 @@ import ErrorPage from './Components/ErrorPage';
 function App() {
   return (
     <>
+    <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -31,6 +32,7 @@ function App() {
         <Route path="*" element={<ErrorPage/>} />
       </Routes>
       <Footer/>
+      </BrowserRouter>
     </>
   );
 }

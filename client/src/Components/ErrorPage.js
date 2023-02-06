@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import "./Error.css";
 
 const ErrorPage = () => {
   return (
-    <div>ErrorPage</div>
-  )
-}
+    <>
+      <div className="flex-center position-r full-height">
+        <div className="code">404 </div>
 
-export default ErrorPage
+        <div className="message">
+          NOT FOUND{" "}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default ErrorPage;
