@@ -5,7 +5,7 @@ const ProductReducer  = (state , action) => {
         isLoading: true,
        };
     }
-    if ( action.type === "MTY_API_DATA")
+    if ( action.type === "MY_API_DATA")
     {
         return{
             ...state,

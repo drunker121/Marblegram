@@ -14,8 +14,7 @@ const Products = () => {
         <div className="our text-center mt-2">
           <h1>Product Categories</h1>
         </div>
-        
-        <div>element divider</div>
+        <hr/>
 
         <div>
         <section className="section-1">

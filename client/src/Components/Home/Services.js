@@ -17,8 +17,7 @@ const Services = () => {
         <div className="our text-center mt-2">
           <h1>Our Services</h1>
         </div>
-
-        <div className="">element divider</div>
+        <hr/>
 
         <div className="cards d-flex justify-content-center">
         
