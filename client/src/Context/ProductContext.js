@@ -3,7 +3,7 @@ import axios from 'axios';
 import reducer from '../Reducer/productReducer'
 
 const AppContext = createContext();
-const API = "https://drunker121.github.io/MarbleGramAPI/Products.json";
+const API = "https://gleaming-pink-stole.cyclic.app/api/products";
 
 const initialState ={
     isLoading: false,
@@ -19,7 +19,6 @@ const AppProvider = ({children}) => {
 
     const getProducts = async (url) =>{
         dispatch({type: "API_LOADING"});
-
         try{
         const res = await axios.get(url);
         const products = await res.data;

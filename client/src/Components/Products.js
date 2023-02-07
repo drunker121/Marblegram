@@ -1,4 +1,4 @@
-import { Cursor } from 'mongoose';
+// import { Cursor } from 'mongoose';
 import React from 'react';
 import { useProductContext } from '../Context/ProductContext';
 import Product from './Product';
@@ -14,8 +14,8 @@ const Products = () => {
   return (
     <>
     <div>
-      {products.map((curElem) => {
-        return <Product key={curElem.id} {...curElem}/>
+      {products?.map((curElem) => {
+        return <Product key={curElem._id} {...curElem}/>
       })
       }
     </div>

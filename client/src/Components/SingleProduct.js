@@ -1,7 +1,11 @@
 import React from 'react';
-import './Single.css'
+import './Single.css';
+import { useParams } from 'react-router-dom';
 
 const SingleProduct = () => {
+
+  const {id} = useParams();
+
   return (
     <>
       <div class="container my-5">
