@@ -73,6 +73,18 @@
     width: 800px;
     height: 60px;
 }
+.filter{
+    /* background-color: #334a5a; */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.filter-box{
+        border-radius: 25px;
+        border: 1px solid #3a5f96;
+        width: fit-content;
+        align-items: center;
+        padding: 5px;
+}
 .inputcity{
     outline: none;
     border-top: #1a1919;

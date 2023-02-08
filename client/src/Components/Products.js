@@ -15,7 +15,7 @@ const Products = () => {
   return (
     <>
       <Filter/>      
-      <div className="container">
+      <div className="container my-5">
         <main className="grid">
           {products.map((curElem) => {
             return <Product key={curElem.pid} {...curElem} />;
