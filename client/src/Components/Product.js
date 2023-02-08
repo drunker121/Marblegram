@@ -4,7 +4,7 @@ import './Product.css';
 import FormatPrice from "../Helpers/FormatPrice";
 
 const Product = (curElem) => {
-  const { id, name, price, Category, property_type, city, image } = curElem;
+  const { _id,pid, name, price, Category, property_type, city, image } = curElem;
   return (
     <>
       {/* <Link to={`/singleproduct/${id}`}>
@@ -20,7 +20,7 @@ const Product = (curElem) => {
     </div>
     </Link> */}
 
-      <Link to={`/singleproduct/${id}`}>
+      <Link to={`/singleproduct/${pid}`}>
         <div id="toast"></div>
         <div id="toast-cart"></div>
         <div className="container">

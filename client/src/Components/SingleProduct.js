@@ -1,52 +1,81 @@
-import React from 'react';
-import './Single.css';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from "react";
+import "./Single.css";
+import { useParams } from "react-router-dom";
+import { useProductContext } from "../Context/ProductContext";
+import FormatPrice from "../Helpers/FormatPrice";
+
+const API = "https://gleaming-pink-stole.cyclic.app/api/products";
 
 const SingleProduct = () => {
+  const { getSingleProduct, isSingleLoading, singleProduct } =
+    useProductContext();
+  const { id } = useParams();
+  //   console.log(id);
+  const {
+    id: alias,
+    pid,
+    name,
+    price,
+    city,
+    Category,
+    property_type,
+    image,
+  } = singleProduct;
+  //   console.log(name);
+  console.log(singleProduct);
 
-  const {id} = useParams();
+  useEffect(() => {
+    getSingleProduct(`${API}?pid=${id}`);
+  }, []);
+
+  if(isSingleLoading){
+    return <div>...Loading</div>
+  }
 
   return (
     <>
-      <div class="container my-5">
+      <div className="container my-5">
+        <div className="row">
+          <div className="col-md-6 col-sm-12">
+            <img
+              className="img-fluid details-img"
+              src={singleProduct[0].image}
+              alt=""
+            />
+          </div>
+          <div className="col-md-6 col-sm-12 description-container">
+            <div className="main-description">
+              <p className="product-category mb-0">{singleProduct[0].Category}</p>
+              <h3>{singleProduct[0].name}</h3>
+              <p><del><FormatPrice price={singleProduct[0].price +200 }/></del></p>
+              <p className="product-price"><FormatPrice price={singleProduct[0].price}/></p>
 
+              <p className="product-title mt-4 mb-1">Cities:</p>
+              <p className="product-description mb-4">
+                {singleProduct[0].city}
+              </p>
 
-<div class="row">
+              <p className="product-title mt-4 mb-1">Property Type:</p>
+              <p className="product-description mb-4">
+                {singleProduct[0].property_type}
+              </p>
 
-    <div class="col-md-6 col-sm-12">
-        <img class="img-fluid details-img" src="https://source.unsplash.com/5Tm4YRqnNcM" alt=""/>
-    </div>
-    <div class="col-md-6 col-sm-12 description-container">
-        <div class="main-description">
-            <p class="product-category mb-0">Graphite</p>
-            <h3>iPhone 7 Graphite - 256GB</h3>
-            <p class="product-price">$1199.00</p>
-
-
-
-            <p class="product-title mt-4 mb-1">About this product</p>
-            <p class="product-description mb-4">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis assumenda voluptatem tempore dolor quod. Expedita, id, minus similique dolor sed adipisci aliquam natus amet doloremque delectus cupiditate? Sint, quasi, ad necessitatibus omnis quaerat tenetur corporis porro aut, natus ex ab id vel odit veniam fugiat temporibus aperiam quia rem minima!
-            </p>
-
-
-            <form class="add-inputs" method="post">
-                <button name="add_to_cart" type="submit" class="btn btn-primary btn-lg">Add to Enquiry</button>
-            </form>
-            <div></div>
-
-
-
+              <form className="add-inputs" method="post">
+                <button
+                  name="add_to_cart"
+                  type="submit"
+                  className="btn btn-primary btn-lg"
+                >
+                  Add to Enquiry
+                </button>
+              </form>
+              <div></div>
+            </div>
+          </div>
         </div>
-
-
-
-
-    </div>
-</div>
-</div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default SingleProduct
+export default SingleProduct;

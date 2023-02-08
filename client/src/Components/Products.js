@@ -14,8 +14,8 @@ const Products = () => {
   return (
     <>
     <div>
-      {products?.map((curElem) => {
-        return <Product key={curElem._id} {...curElem}/>
+      {products.map((curElem) => {
+        return <Product key={curElem.pid} {...curElem}/>
       })
       }
     </div>
