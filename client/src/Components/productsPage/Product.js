@@ -11,34 +11,15 @@ const Product = (curElem) => {
 
   return (
     <>
-{/*       
-  
-      <div className="container my-5">
-        <main className="grid">
-          {products.map((curElem) => {
-            return <Product key={curElem.pid} {...curElem} />;
-            <Link to={`/singleproduct/${pid}`}>
-      <img className="proimg" src={image} alt="Sample photo"/>
-      <div className="text">
-        <h3>{name}</h3>
-        <del><p><FormatPrice price={price + 200}/></p></del>
-        <p><FormatPrice price={price}/></p>
-        <Link to="/" className="btn btn-primary btn-block">Add to Enquiry</Link>
-      </div>
-    </Link>
-          })}
-        </main>
-      </div> */}
-
       <Link to={`/singleproduct/${pid}`}>
-      <img className="proimg" src={image} alt="Sample photo"/>
-      <div className="text">
-        <h3>{name}</h3>
-        <del><p><FormatPrice price={price + 200}/></p></del>
-        <p><FormatPrice price={price}/></p>
-        <Link to="/" className="btn btn-primary btn-block">Add to Enquiry</Link>
-      </div>
-    </Link>
+        <img className="proimg" src={image} alt="Sample photo"/>
+        <div className="text">
+          <h3>{name}</h3>
+          <del><p><FormatPrice price={price + 200}/></p></del>
+          <p><FormatPrice price={price}/></p>
+          <Link to="/" className="btn btn-primary btn-block">Add to Enquiry</Link>
+        </div>
+      </Link>
     </>
   );
 };

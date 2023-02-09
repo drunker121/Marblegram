@@ -5,6 +5,7 @@ import Product from "./Product";
 import Filter from "./Filter";
 import { useFilterContext } from "../../Context/Filter_Context";
 import ProductList from "./ProductList";
+import Sort from "./Sort";
 
 
 const Products = () => {
@@ -18,6 +19,7 @@ const Products = () => {
   return (
     <>
       <Filter/>
+      <Sort/>
       <ProductList/>
       {/* <div className="container my-5">
         <main className="grid">
