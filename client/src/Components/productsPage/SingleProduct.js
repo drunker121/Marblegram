@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import "./Single.css";
 import { useParams } from "react-router-dom";
-import { useProductContext } from "../Context/ProductContext";
-import FormatPrice from "../Helpers/FormatPrice";
+import { useProductContext } from "../../Context/ProductContext";
+import FormatPrice from "../../Helpers/FormatPrice";
+// import Products from "./Products";
 
 const API = "https://gleaming-pink-stole.cyclic.app/api/products";
 
@@ -11,16 +12,16 @@ const SingleProduct = () => {
     useProductContext();
   const { id } = useParams();
   //   console.log(id);
-  const {
-    id: alias,
-    pid,
-    name,
-    price,
-    city,
-    Category,
-    property_type,
-    image,
-  } = singleProduct;
+  // const {
+  //   id: alias,
+  //   pid,
+  //   name,
+  //   price,
+  //   city,
+  //   Category,
+  //   property_type,
+  //   image,
+  // } = singleProduct;
   //   console.log(name);
   console.log(singleProduct);
 

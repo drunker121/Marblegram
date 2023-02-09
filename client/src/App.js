@@ -10,8 +10,8 @@ import Calci from './Components/OurServices/Calci';
 import Installation from './Components/OurServices/Installation';
 import Selection from './Components/OurServices/Selection';
 import Interior from './Components/OurServices/Interior';
-import Products from './Components/Products';
-import SingleProduct from './Components/SingleProduct';
+import Products from './Components/productsPage/Products';
+import SingleProduct from './Components/productsPage/SingleProduct';
 import ErrorPage from './Components/ErrorPage';
 function App() {
   return (
