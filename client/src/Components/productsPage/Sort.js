@@ -5,7 +5,7 @@ import './Sort.css';
 
 const Sort = () => {
 
-    const {grid_view , setGridView , setListView, filter_products} =useFilterContext();
+    const {grid_view , setGridView , setListView, filter_products , sorting} =useFilterContext();
 
   return (
     <>
@@ -22,7 +22,14 @@ const Sort = () => {
                 <p>{`${filter_products.length}`} products available</p>
             </div>
             <div>
-                sorting table
+                <form action='#'>
+                    <label htmlFor='sort'></label>
+                    <select name='sort' id='sort' onClick={sorting}>
+                        {/* <option  vlaue="op" disabled>Sort</option> */}
+                        <option value="lowest">Price(lowest to highest)</option>
+                        <option value="highest">Price(highest to lowest)</option>
+                    </select>
+                </form>
             </div>
         </div>
     </>
