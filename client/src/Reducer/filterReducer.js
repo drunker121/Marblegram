@@ -20,9 +20,6 @@ const filterReducer = (state, action) => {
             }
 
         case "GET_SORT_VALUE":
-            // let userSortValue = document.getElementById("sort");
-            // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
-            // console.log(sort_value);
             return{
                 ...state,
                 sortingValue: action.payload,
@@ -30,8 +27,6 @@ const filterReducer = (state, action) => {
 
         case "SORTING_PRODUCTS":
             let newSortData;
-            // let tempSortData = [...action.payload];
-
             const { filter_products , sortingValue } = state;
             let tempSortData = [...filter_products];
 
@@ -49,6 +44,34 @@ const filterReducer = (state, action) => {
             return {
                 ...state,
                 filter_products:newSortData,
+            };
+
+        case "UPDATE_FILTER_VALUE":
+            const { name , value } = action.payload;
+
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    [name] : value,
+                },
+            }
+
+        case "FILTER_PRODUCTS":
+            let {all_products} = state;
+            let tempFilterData = all_products;
+
+            const {text} = state.filters;
+
+            if (text) {
+                tempFilterData = tempFilterData.filter((curElem) => {
+                    return curElem.name.toLowerCase().includes(text);
+                })
+            }
+
+            return {
+                ...state,
+                filter_products:tempFilterData,
             };
 
         default:
