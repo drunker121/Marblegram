@@ -1,72 +1,180 @@
-import React from 'react';
-import { MdLocationOn , MdSearch, MdCategory } from "react-icons/md";
-import { FaHome , FaRupeeSign} from "react-icons/fa";
+import React from "react";
+import { MdLocationOn, MdCategory } from "react-icons/md";
+import { FaHome, FaRupeeSign } from "react-icons/fa";
+import { useFilterContext } from "../../Context/Filter_Context";
+
 
 const Filter = () => {
+
+  const {
+    all_products,
+    updateFilterValue,
+    clearFilters,
+    filters: { Category, price },
+  } = useFilterContext();
+
+  const getUniqueData = (data, property) => {
+    let newVal = [];
+
+    data.forEach((curElem) => {
+      newVal = newVal.concat(curElem[property]);
+    });
+
+    return [...new Set(newVal)];
+  };
+
+  const categoryOnlyData = getUniqueData(all_products, "Category");
+  const cityOnlyData = getUniqueData(all_products, "city");
+  const propertyOnlyData = getUniqueData(all_products, "property_type");
+
   return (
     <>
-    <div className='filter d-flex justify-content-center'>
-      <div className='filter-box d-flex'>
-        <div className='d-flex'>
-        <div className='mx-2'><MdLocationOn/></div>
-            <div className='propdiv '>
-            <select className='property text-muted' placeholder='op'>
-                <option className='' style={{display: 'none'}}>Enter City, Locaity</option>
-                <option>Delhi</option>
-                <option>Gurugram</option>
-                <option>Noida</option>
-                <option>Kishangarh</option>
-                <option>Jaipur</option>
-            </select>
+      <div className="filter d-flex justify-content-center">
+        <div className="filter-box px-4">
+          <div className="d-flex">
+
+            <div className="d-flex">
+              <div className="mx-2">
+                <MdLocationOn />
+              </div>
+              <div className="propdiv ">
+                <select
+                  className="property text-muted"
+                  placeholder="op"
+                  onChange={updateFilterValue}
+                  name="city"
+                >
+                  <option className="" style={{ display: "none" }} value="default">
+                    Enter City, Locaity
+                  </option>
+                  {cityOnlyData.map((curElem, index) => {
+                    return (
+                      <option
+                        key={index}
+                        type="button"
+                        name="city"
+                        value={curElem}
+                      >
+                        {curElem}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
             </div>
+
+            <div className="d-flex">
+              <div className="mx-2">
+                <FaHome />
+              </div>
+              <div className="propdiv ">
+                <select
+                  className="property text-muted"
+                  placeholder="op"
+                  onChange={updateFilterValue}
+                  name="property_type"
+                >
+                  <option className="" style={{ display: "none" }} value="default">
+                    Property Type
+                  </option>
+                  {propertyOnlyData.map((curElem, index) => {
+                    return (
+                      <option
+                        key={index}
+                        type="button"
+                        name="property_type"
+                        value={curElem}
+                      >
+                        {curElem}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+
+            <div className="d-flex">
+              <div className="mx-2">
+                <MdCategory />
+              </div>
+              <div>
+                <select
+                  className="category text-muted"
+                  onChange={  updateFilterValue }
+                  name="Category"
+                >
+                  <option style={{ display: "none" }} value="default">Category</option>
+                  {categoryOnlyData.map((curElem, index) => {
+                    return (
+                      <option
+                        key={index}
+                        type="button"
+                        name="Category"
+                        value={curElem}
+                      >
+                        {curElem}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+
+            <div className="d-flex">
+              <div className="mx-2">
+                <FaRupeeSign />
+              </div>
+              <div>
+                <select className="budget text-muted" name="price" onChange={updateFilterValue}>
+                    <optgroup label="Max. Price">
+                    <option style={{ display: "none" }} value="default">Budget</option>
+                    <option value="1">1200</option>
+                    <option>1400</option>
+                    <option>1600</option>
+                    <option>1800</option>
+                    <option>2000</option>
+                    <option>2200</option>
+                    </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className='d-flex my-2 justify-content-center'>
+        <div className='mx-2'><FaRupeeSign/>Budget</div>
+        <div className='mx-2 my-1'>
+            <select className='category text-muted mx-2' onChange={updateFilterValue}>
+                <option style={{display: 'none'}}>Min Price</option>
+                <option>1200</option>
+                <option>1400</option>
+                <option>1600</option>
+                <option>1800</option>
+            </select>
+
+            <select className='category text-muted' onChange={updateFilterValue}>
+                <option style={{display: 'none'}}>Max Price</option>
+                <option>1600</option>
+                <option>1800</option>
+                <option>2000</option>
+                <option>2200</option>
+            </select>
         </div>
 
-        <div className='d-flex'>
-            <div className='mx-2'><FaHome/></div>
-            <div className='propdiv '>
-            <select className='property text-muted' placeholder='op'>
-                <option className='' style={{display: 'none'}}>Property Type</option>
-                <option>Residential</option>
-                <option>Commertial</option>
-            </select>
-            </div>
+        </div> */}
         </div>
 
-        
-        <div className='d-flex'>
-            <div className='mx-2'><MdCategory/></div>
-            <div>
-            <select className='category text-muted'>
-                <option style={{display: 'none'}}>Category</option>
-                <option>Marble</option>
-                <option>Granite</option>
-                <option>Arts Work</option>
-            </select>
-            </div>
-        </div>
-
-        <div className='d-flex'>
-            <div className='mx-2'><FaRupeeSign/></div>
-            <div>
-            <select className='budget text-muted'>
-                <option style={{display: 'none'}}>Budget</option>
-                <option>1000 to 10000</option>
-                <option>10000 to 50000</option>
-                <option>50000 to 200000</option>
-            </select>
-            </div>
-        </div>
-
-        <div className='d-flex mx-2'>
-            <button type="button" className="sbtn d-flex btn text-white">
+        {/* <div className='d-flex mx-2'>
+            <button type="button" className="sbtn d-flex btn text-white" >
             <div className='me-1 my-1'>Apply Filters</div>
             </button>
-        </div>
+        </div> */}
       </div>
-    </div>
-    
-    </>
-  )
-}
 
-export default Filter
+      <div className="d-flex justify-content-center">
+      <button type="button" className="btn btn-warning" onClick={ clearFilters }>Clear filters</button>
+      </div>
+    </>
+  );
+};
+
+export default Filter;

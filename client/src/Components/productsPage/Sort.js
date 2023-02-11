@@ -9,7 +9,7 @@ const Sort = () => {
 
   return (
     <>
-        <div className='container d-flex justify-content-between'>
+        <div className='container d-flex justify-content-between my-5 py-3'>
             <div className='d-flex'>
                 <button className={grid_view ? 'active sort-btn' : 'sort-btn' } onClick={setGridView}>
                     <BsFillGridFill/>
@@ -25,7 +25,7 @@ const Sort = () => {
                 <form action='#'>
                     <label htmlFor='sort'></label>
                     <select name='sort' id='sort' onClick={sorting}>
-                        {/* <option  vlaue="op" disabled>Sort</option> */}
+                        <option style={{display: 'none'}}>Sort</option>
                         <option value="lowest">Price(lowest to highest)</option>
                         <option value="highest">Price(highest to lowest)</option>
                     </select>

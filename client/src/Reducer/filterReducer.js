@@ -1,10 +1,20 @@
 const filterReducer = (state, action) => {
     switch (action.type) {
+
         case "LOAD_FILTER_PRODUCTS":
+
+            let priceArr = action.payload.map((curElem) => curElem.price);
+            // console.log(Math.max.apply(null, priceArr));
+            // let maxPrice = priceArr.reduce((initialVal, curVal) => 
+            //     Math.max(initialVal, curVal)
+            // );
+            let maxPrice = Math.max(...priceArr);
+
             return{
                 ...state,
                 filter_products: [...action.payload],
                 all_products: [...action.payload],
+                filters: { ...state.filters, maxPrice , price: maxPrice}
             };
         
         case "SET_GRID_VIEW": 
@@ -46,26 +56,64 @@ const filterReducer = (state, action) => {
                 filter_products:newSortData,
             };
 
-        case "UPDATE_FILTER_VALUE":
+        case "UPDATE_FILTER_VALUE" :
             const { name , value } = action.payload;
 
             return {
                 ...state,
                 filters: {
                     ...state.filters,
-                    [name] : value,
+                    [name]: value,
                 },
+            };
+
+        case "CLEAR_FILTERS" :
+
+            return {
+                ...state,
+                filters:{
+                    ...state.filters,
+                    text:"",
+                    Category:"",
+                    city:"",
+                    property_type:"",
+                    price: 0,
+                }
             }
 
         case "FILTER_PRODUCTS":
             let {all_products} = state;
-            let tempFilterData = all_products;
+            let tempFilterData = [...all_products];
 
-            const {text} = state.filters;
+            const {text, Category, city , property_type , price} = state.filters;
 
             if (text) {
                 tempFilterData = tempFilterData.filter((curElem) => {
                     return curElem.name.toLowerCase().includes(text);
+                });
+            }
+
+            if ( Category ) {
+                tempFilterData = tempFilterData.filter((curElem) => {
+                    return curElem.Category === Category;
+                });
+            }
+
+            if ( city ) {
+                tempFilterData = tempFilterData.filter((curElem) => {
+                   return curElem.city.some(c => c===city);
+                })
+            }
+
+            if ( property_type ) {
+                tempFilterData = tempFilterData.filter((curElem) => {
+                    return curElem.property_type.some(c => c ===property_type);
+                })
+            }
+
+            if ( price ) {
+                tempFilterData = tempFilterData.filter((curElem) => {
+                    return curElem.price <= price;
                 })
             }
 
