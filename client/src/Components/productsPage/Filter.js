@@ -138,29 +138,8 @@ const Filter = () => {
                 </select>
               </div>
             </div>
+
           </div>
-
-          {/* <div className='d-flex my-2 justify-content-center'>
-        <div className='mx-2'><FaRupeeSign/>Budget</div>
-        <div className='mx-2 my-1'>
-            <select className='category text-muted mx-2' onChange={updateFilterValue}>
-                <option style={{display: 'none'}}>Min Price</option>
-                <option>1200</option>
-                <option>1400</option>
-                <option>1600</option>
-                <option>1800</option>
-            </select>
-
-            <select className='category text-muted' onChange={updateFilterValue}>
-                <option style={{display: 'none'}}>Max Price</option>
-                <option>1600</option>
-                <option>1800</option>
-                <option>2000</option>
-                <option>2200</option>
-            </select>
-        </div>
-
-        </div> */}
         </div>
 
         {/* <div className='d-flex mx-2'>
