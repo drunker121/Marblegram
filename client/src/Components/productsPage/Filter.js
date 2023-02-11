@@ -10,7 +10,7 @@ const Filter = () => {
     all_products,
     updateFilterValue,
     clearFilters,
-    filters: { Category, price },
+    // filters: { Category, price },
   } = useFilterContext();
 
   const getUniqueData = (data, property) => {
@@ -43,6 +43,7 @@ const Filter = () => {
                   placeholder="op"
                   onChange={updateFilterValue}
                   name="city"
+                  id="mySelect1"
                 >
                   <option className="" style={{ display: "none" }} value="default">
                     Enter City, Locaity
@@ -73,6 +74,7 @@ const Filter = () => {
                   placeholder="op"
                   onChange={updateFilterValue}
                   name="property_type"
+                  id="mySelect2"
                 >
                   <option className="" style={{ display: "none" }} value="default">
                     Property Type
@@ -102,6 +104,7 @@ const Filter = () => {
                   className="category text-muted"
                   onChange={  updateFilterValue }
                   name="Category"
+                  id="mySelect3"
                 >
                   <option style={{ display: "none" }} value="default">Category</option>
                   {categoryOnlyData.map((curElem, index) => {
@@ -125,7 +128,7 @@ const Filter = () => {
                 <FaRupeeSign />
               </div>
               <div>
-                <select className="budget text-muted" name="price" onChange={updateFilterValue}>
+                <select className="budget text-muted" name="price" onChange={updateFilterValue} id="mySelect4">
                     <optgroup label="Max. Price">
                     <option style={{ display: "none" }} value="default">Budget</option>
                     <option value="1">1200</option>
@@ -155,5 +158,4 @@ const Filter = () => {
     </>
   );
 };
-
 export default Filter;

@@ -13,6 +13,7 @@ import Interior from './Components/OurServices/Interior';
 import Products from './Components/productsPage/Products';
 import SingleProduct from './Components/productsPage/SingleProduct';
 import ErrorPage from './Components/ErrorPage';
+import Enquiry from './Components/Enquiry';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/interior" element={<Interior/>} />
         <Route path="/products" element={<Products/>} />
         <Route path="/singleproduct/:id" element={<SingleProduct/>} />
+        <Route path="/enquirycart" element={<Enquiry/>} />
         <Route path="*" element={<ErrorPage/>} />
       </Routes>
       <Footer/>

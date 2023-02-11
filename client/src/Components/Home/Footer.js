@@ -69,7 +69,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/enquirycart">
                                         Your Inquiry
                                     </Link>
                                 </li>
@@ -84,12 +84,12 @@ const Footer = () => {
                             </h5>
                             <ul>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/aboutus">
                                         History
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/">
+                                    <Link to="/contactus">
                                         About Company
                                     </Link>
                                 </li>

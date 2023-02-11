@@ -45,6 +45,11 @@ export const FilterContextProvider = ({children}) => {
     }
 
     const clearFilters = () => {
+        document.getElementById("mySelect1").value = "default";
+        document.getElementById("mySelect2").value = "default";
+        document.getElementById("mySelect3").value = "default";
+        document.getElementById("mySelect4").value = "default";
+
         dispatch ( { type: "CLEAR_FILTERS"})
     }
 
