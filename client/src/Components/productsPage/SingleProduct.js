@@ -3,13 +3,12 @@ import "./Single.css";
 import { useParams } from "react-router-dom";
 import { useProductContext } from "../../Context/ProductContext";
 import FormatPrice from "../../Helpers/FormatPrice";
-// import Products from "./Products";
+import AddToCart from "./AddToCart";
 
 const API = "https://gleaming-pink-stole.cyclic.app/api/products";
 
 const SingleProduct = () => {
-  const { getSingleProduct, isSingleLoading, singleProduct } =
-    useProductContext();
+  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
   const { id } = useParams();
   //   console.log(id);
   // const {
@@ -23,11 +22,14 @@ const SingleProduct = () => {
   //   image,
   // } = singleProduct;
   //   console.log(name);
-  console.log(singleProduct);
+  // console.log(singleProduct);
 
   useEffect(() => {
+    console.log(`${API}?pid=${id}`);
     getSingleProduct(`${API}?pid=${id}`);
   }, []);
+
+  console.log(singleProduct , "hi");
 
   if(isSingleLoading){
     return <div>...Loading</div>
@@ -61,15 +63,7 @@ const SingleProduct = () => {
                 {singleProduct[0].property_type}
               </p>
 
-              <form className="add-inputs" method="post">
-                <button
-                  name="add_to_cart"
-                  type="submit"
-                  className="btn btn-primary btn-lg"
-                >
-                  Add to Enquiry
-                </button>
-              </form>
+              <AddToCart product={singleProduct}/>
               <div></div>
             </div>
           </div>

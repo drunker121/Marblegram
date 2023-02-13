@@ -15,6 +15,7 @@ const initialState = {
         city:"",
         property_type:"",
         price: 0,
+        pid:"",
     }
 };
 

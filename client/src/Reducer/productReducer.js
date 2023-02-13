@@ -41,7 +41,20 @@ const ProductReducer  = (state , action) => {
             isError:true,
         };
      }
-
+     if (action.type === "SET_SINGLE_CART"){
+        return {
+            ...state,
+            isSingleLoading:false,
+            cartSingleProduct: action.payload,
+        };
+     }
+     if ( action.type === "SET_CART_ERROR"){
+        return {
+            ...state,
+            isSingleLoading: false,
+            isError:true,
+        }
+     }
      
     // return state;
 };

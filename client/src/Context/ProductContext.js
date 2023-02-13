@@ -10,7 +10,8 @@ const initialState ={
     isSingleLoading: false,
     isError: false,
     products : [],
-    singleProduct: {},
+    singleProduct: [{}],
+    cartSingleProduct: {},
 };
 
 const AppProvider = ({children}) => {
@@ -33,6 +34,7 @@ const AppProvider = ({children}) => {
         dispatch({type: "SET_SINGLE_LOADING"});
         try{
             const res = await axios.get(url);
+            // console.log(res.data);
             const singleProduct = await res.data;
             dispatch({type: "SET_SINGLE_PRODUCT", payload: singleProduct});
         } catch (error) {
