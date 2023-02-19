@@ -27,7 +27,7 @@ const SingleProduct = () => {
   useEffect(() => {
     console.log(`${API}?pid=${id}`);
     getSingleProduct(`${API}?pid=${id}`);
-  }, []);
+  }, [] );
 
   console.log(singleProduct , "hi");
 
