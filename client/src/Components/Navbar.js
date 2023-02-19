@@ -56,12 +56,12 @@ const Navbar = () => {
                   About Us
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item px-3">
                 <Link className="nav-link" to="/contactus">
                   Contact Us
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item px-3">
                 <Link className="nav-link" to="/enquirycart">
                   Enquiry
                 </Link>

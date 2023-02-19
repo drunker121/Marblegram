@@ -1,11 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 import "./About.css";
 import { Link } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
 import { IoMdCall } from "react-icons/io";
+import axios from 'axios';
+
 
 const ContactUs = () => {
+
+  const [contactQuery , setContactQuery] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    query: ""
+  })
+  
+  const changeHandler = (e) => {
+    const {name , value} = e.target;
+      setContactQuery({
+        ...contactQuery,
+        [name]:value
+      })
+  };
+
+  const sendHandle = async(e) => {
+    e.preventDefault();
+    const {name, email, phone_number, query} = contactQuery;
+    if ( name && email && phone_number && query) {
+      axios.post('http://localhost:5000/contactus' , contactQuery)
+      .then((res) => {
+        alert("Message sent successfully");
+        setContactQuery({
+          ...contactQuery,
+          query: ""
+        });
+      })
+      .catch((err)=>console.log(err));
+    }
+    else {
+      alert("Enter the fields properly");
+    }
+  }
+
+
   return (
     <>
       <div className="aboutbg pt-5 pb-5 mb-3">
@@ -37,25 +75,25 @@ const ContactUs = () => {
             </ol>
           </div>
           <div className="getintouch">
-            <form className="cntform p-5 m-5">
+            <form className="cntform p-5 m-5" onSubmit={sendHandle}>
               <h3>Get in Touch</h3>
               <div>
                 <label>Name:</label>
-                <input></input>
+                <input type="text" name="name" id="name" value={contactQuery.name} onChange={changeHandler}></input>
               </div>
               <div>
                 <label>Email:</label>
-                <input></input>
+                <input type="text" name="email" id="email" value={contactQuery.email} onChange={changeHandler}></input>
               </div>
               <div>
                 <label>Phone Number:</label>
-                <input></input>
+                <input type="text" name="phone_number" id="phone_number" value={contactQuery.phone_number} onChange={changeHandler}></input>
               </div>
               <div>
                 <label>Your query:</label>
-                <input></input>
+                <input type="text" name="query" id="query" value={contactQuery.query} onChange={changeHandler}></input>
               </div>
-              <button className="btn btn-primary mt-2">Send</button>
+              <button className="btn btn-primary mt-2" type="submit" onClick={sendHandle}>Send</button>
             </form>
           </div>
         </div>

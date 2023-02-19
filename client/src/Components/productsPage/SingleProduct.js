@@ -63,7 +63,7 @@ const SingleProduct = () => {
                 {singleProduct[0].property_type}
               </p>
 
-              <AddToCart product={singleProduct}/>
+              <AddToCart pid={singleProduct[0].pid}/>
               <div></div>
             </div>
           </div>
